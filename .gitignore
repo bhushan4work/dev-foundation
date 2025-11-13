@@ -1,0 +1,92 @@
+# -----------------------------
+# macOS system files
+# -----------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+*.swo
+
+# -----------------------------
+# VSCode
+# -----------------------------
+.vscode/
+
+# IntelliJ / JetBrains
+.idea/
+*.iml
+
+# -----------------------------
+# Node / JavaScript
+# -----------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+
+# -----------------------------
+# Java
+# -----------------------------
+*.class
+*.jar
+*.war
+*.ear
+target/
+.gradle/
+.build/
+bin/
+
+# -----------------------------
+# C / C++
+# -----------------------------
+*.out
+*.o
+*.obj
+*.exe
+*.a
+*.so
+*.dSYM/
+
+# -----------------------------
+# Logs
+# -----------------------------
+*.log
+logs/
+
+# -----------------------------
+# Archives
+# -----------------------------
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# -----------------------------
+# Temporary / Cache
+# -----------------------------
+tmp/
+temp/
+.cache/
+
+# -----------------------------
+# OS-specific trash
+# -----------------------------
+ehthumbs.db
+Thumbs.db
+
