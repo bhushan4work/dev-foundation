@@ -1,0 +1,12 @@
+.img1, .img2 {
+    height: 280px;
+    width: 280px;
+}
+
+.img1.up1{
+    height: 210px;
+    width: 210px;
+}
+.img2.up2{
+    width: 150px;
+}

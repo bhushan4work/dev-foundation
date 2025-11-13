@@ -1,0 +1,22 @@
+.odd{
+    background-color: #f691a2;
+    font-size: 18px;
+}
+
+#num1{
+    color: blue;
+    font-size: 33px;
+}
+
+.incr-fontsize{
+    background-color: #f691a2;
+    font-size: 30px;
+    font-weight: auto ;
+
+}
+
+#num2{
+    font-weight: bold;
+    font-size: 24px;
+    background-color: rgb(127, 244, 143);
+}

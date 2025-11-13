@@ -1,0 +1,30 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+.titlee{
+    font-size: 26px;
+    font-weight: 1500px;
+    margin: 30px;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+img{
+    width: 150px;
+    height: 150px;
+}
+
+.info{
+    max-width: 150px;
+}
+
+.txt{
+    text-align: center;
+    margin: 0;
+}

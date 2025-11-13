@@ -1,0 +1,36 @@
+body .box{
+    background-color: papayawhip;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.logo{
+    font-weight: bold;
+    font-size: 50px;
+    background: white;
+    color:tomato; 
+    padding: 4px 32px ;
+}
+
+a{
+    text-decoration: none;
+    background: white;
+    font-size: 22px;
+    padding: 8px;
+}
+
+.box{
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 8px;
+}
