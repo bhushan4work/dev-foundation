@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add7(a){
+            return a + 7;
+        }
+        console.log(add7(5));
+
+        function mutiply(b,c){
+            return b * c;
+        }
+        console.log(mutiply(4,5));
+
+        function capitalize(string){
+            //for any string it will return the 1st letter uppercase and the rest lowercase
+            return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+        }
+        console.log(capitalize("ABCD"));
+
+        function lastLetter(string){
+            return string.slice(-1); //or string.charAt(string.length-1) or string[string.length-1]
+        }
+        console.log(lastLetter("abcd"));
+    </script>
+    
+</body>
+</html>

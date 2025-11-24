@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //A TypeError may be thrown when:
+        //an operand or argument passed to a function is incompatible with the type expected by that operator or function; or
+        //when attempting to modify a value that cannot be changed; or
+        //when attempting to use a value in an inappropriate way
+        //catching a typeerror
+        try {
+            null.f();
+        } catch (e) {
+            console.log(e instanceof TypeError); // true
+            console.log(e.message); // "null has no properties"
+            console.log(e.name); // "TypeError"
+            console.log(e.stack); // Stack of the error
+        }
+
+        //creating a typeerror
+        try {
+            throw new TypeError("Hello");
+        } catch (e) {
+            console.log(e instanceof TypeError); // true
+            console.log(e.message); // "Hello"
+            console.log(e.name); // "TypeError"
+            console.log(e.stack); // Stack of the error
+        }
+        
+        //catching a syntaxerror
+        try {
+            eval("hoo bar");
+        } catch (e) {
+            console.log(e instanceof SyntaxError); // true
+            console.log(e.message);
+            console.log(e.name); // "SyntaxError"
+            console.log(e.stack); // Stack of the error
+        }
+        
+        //catching a referenceerror
+        try {
+            let a = undefinedVariable;
+        } catch (e) {
+            console.log(e instanceof ReferenceError); // true
+            console.log(e.message); // "undefinedVariable is not defined"
+            console.log(e.name); // "ReferenceError"
+            console.log(e.stack); // Stack of the error
+        }
+    </script>
+</body>
+
+</html>

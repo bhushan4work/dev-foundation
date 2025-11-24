@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //---Arrays---
+        let arr1 = ['apple', 'orange', 'banana'];
+        arr1[arr1.length - 1]; /* or */ arr1[arr1(-1)];   //outputs last element in array
+        arr1.pop(); //removes last element
+        arr1.push('mango'); //adds element at last, multiple elements can be pushed together like ('mango','grapes')
+        arr1.shift(); //removes 1st element
+        arr1.unshift('mango'); //adds mango to 1st place,mutiple elements can be unshifted together like ('mango','grapes')
+
+        let arr2 = ['ball', { name: 'john' }, true, function () { alert("hello"); }]; //array can store diff types of value
+        arr2[1].name; //outputs john
+        arr2[3](); //outputs hello
+
+        let arr4 = [1, 2, 3, 4, 5];
+        arr4.length = 2; // truncate to 2 elements
+        alert(arr4); // [1, 2]
+        arr4.length = 5; // return length back
+        alert(arr4[3]); // undefined: the values do not return
+
+        let arr5 = ["I", "go", "home"];
+        delete arr5[1]; // remove "go"
+        alert(arr5[1]); // undefined
+        alert(arr5.length); // 3 ,now arr = ["I",  , "home"]
+
+        let arr6 = ["I", "study", "JavaScript"];
+        arr6.splice(1, 1); // from index 1 remove 1 element
+        alert(arr6); // ["I", "JavaScript"]
+
+        let arr7 = ["t", "e", "s", "t"];
+        alert(arr7.slice(1, 3)); // e,s (outputs from 1 to 3)
+        alert(arr7.slice(-2)); // s,t (outputs from -2 till the end)
+
+        let arr8 = [1, 2];
+        // create an array from: arr and [3,4]
+        alert(arr8.concat([3, 4])); // 1,2,3,4
+        // create an array from: arr and [3,4] and [5,6]
+        alert(arr8.concat([3, 4], [5, 6])); // 1,2,3,4,5,6
+        // create an array from: arr and [3,4], then add values 5 and 6
+        alert(arr8.concat([3, 4], 5, 6)); // 1,2,3,4,5,6
+
+        let arr9 = [1, 0, false];
+        alert(arr9.indexOf(0)); // 1
+        alert(arr9.indexOf(false)); // 2
+        alert(arr9.indexOf(null)); // -1
+        alert(arr9.includes(1)); // true, If we want to check if item exists in the array then arr.includes is used
+
+        let users1 = [
+            { id: 1, name: "John" },
+            { id: 2, name: "Pete" },
+            { id: 3, name: "Mary" }
+        ];
+        let user = users.find(item => item.id == 1);
+        alert(user.name); // John
+        alert(users.findIndex(user => user.name == 'John')); // 0
+        alert(users.findLastIndex(user => user.name == 'John')); // 3
+
+        //filter- creates new arr by filtering out elements
+        let nums = [1,2,3,4,5];
+        evenNums = nums.filter(getEven);
+        console.log(evenNums);
+        function getEven(element){
+            return element % 2 === 0;
+        }
+
+        //map- accepts callbck & applies that fxn to each element
+        let numss = [5,6,7,8,9];
+        let square = numss.map(getSquare);
+        console.log(square);
+        function getSquare(element){
+            return Math.pow(element,2);
+        }
+
+        let arr10 = [1, 2, 15];
+        arr10.sort(); // 1,15,2 ,because items are sorted as strings by default. To use sorting order,we need to supply a fxn as below
+        function compareNumeric(a, b) {
+            if (a > b) return 1;
+            if (a == b) return 0;
+            if (a < b) return -1;
+        }
+        let arr11 = [1, 2, 15];
+        arr11.sort(compareNumeric);
+        alert(arr);  // 1, 2, 15
+
+        let arr12 = [1, 2, 3, 4, 5];
+        arr12.reverse();
+        alert(arr); // 5,4,3,2,1
+
+        let names = 'Bilbo, Gandalf, Nazgul';
+        let arr13 = names.split(', ');
+        for (let name of arr13) {
+            alert(`A message to ${name}.`); // A message to Bilbo (same message for other 2 names)
+        }
+        let arr14 = 'Bilbo, Gandalf, Nazgul, Saruman'.split(', ', 2);
+        alert(arr14); // Bilbo, Gandalf
+
+        let arr15 = [1, 2, 3, 4];
+        console.log(arr15.fill(0, 2, 4)); // Fill with 0 from position 2 until position 4 , [1, 2, 0, 0]
+        console.log(arr15.fill(5, 1)); // Fill with 5 from position 1 , [1, 5, 5, 5]
+        console.log(arr15.fill(6)); // [6, 6, 6, 6]
+
+        //reduce- reduces elements of arr to single value
+        const arr16 = [1, 2, 3, 4];
+        let total = arr16.reduce(sum);
+        console.log(total); // 10
+        function sum(accumulator, element){
+            return accumulator + element;
+        }
+
+        //split
+        const str = "The quick brown fox jumps over the lazy dog.";
+        const words = str.split(" ");
+        console.log(words[3]); // output: "fox"
+        const chars = str.split("");
+        console.log(chars[8]); // output: "k"
+        
+
+        //---Loops---
+        let fruits = ["Apple", "Orange", "Plum"];
+        // iterates over array elements
+        for (let fruit of fruits) {
+            alert(fruit);
+        }
+
+        let arr3 = ["Apple", "Orange", "Pear"];
+        for (let key in arr3) {
+            alert(arr3[key]); // Apple, Orange, Pear
+        }
+    </script>
+</body>
+
+</html>

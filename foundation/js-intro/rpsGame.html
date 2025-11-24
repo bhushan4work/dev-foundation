@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getUserChoice() {
+            let input = prompt("Enter R for Rock, P for Paper, S for Scissor").toUpperCase();
+
+            // Repeat until valid input (not empty)
+            while (input === "") {
+                input = prompt("Please enter R, P, or S").toUpperCase();
+            }
+
+            if (input === "R") return "rock";
+            if (input === "P") return "paper";
+            if (input === "S") return "scissor";
+
+            console.log("Invalid input");
+            return null;
+        }
+
+        function computerchoice() {
+            let option = ["rock", "paper", "scissor"];
+            let choice = Math.floor(Math.random() * option.length);
+            console.log("Computer chose:", option[choice]);
+            return option[choice];
+        }
+
+        function getwinner(user, computer) {
+            if (user === computer) return "It's a tie";
+
+            if (
+                (user === "rock" && computer === "scissor") ||
+                (user === "scissor" && computer === "paper") ||
+                (user === "paper" && computer === "rock")
+            ) {
+                return "You win!";
+            }
+
+            return "Computer wins!";
+        }
+
+        // -------------------- GAME STARTS HERE --------------------
+
+        let rounds = Number(prompt("How many rounds do you want to play?"));
+        let userScore = 0;
+        let computerScore = 0;
+
+        for (let i = 1; i <= rounds; i++) {
+            console.log(`\n--- Round ${i} ---`);
+
+            let user = getUserChoice();
+
+            if (user === null) {
+                console.log("Invalid input. Round skipped.");
+                continue;
+            }
+
+            console.log("You chose:", user);
+
+            let computer = computerchoice();
+            let result = getwinner(user, computer);
+            console.log(result);
+
+            // Score update
+            if (result === "You win!") userScore++;
+            else if (result === "Computer wins!") computerScore++;
+
+            // Display current score
+            console.log(`Score → You: ${userScore} | Computer: ${computerScore}`);
+        }
+
+        // -------------------- FINAL RESULTS --------------------
+
+        console.log("\n====== FINAL RESULT ======");
+        console.log(`Final Score → You: ${userScore} | Computer: ${computerScore}`);
+
+        if (userScore > computerScore) console.log("🎉 You won the game!");
+        else if (computerScore > userScore) console.log("💻 Computer won the game!");
+        else console.log("🤝 It's a tie overall!");
+
+    </script>
+</body>
+
+</html>
