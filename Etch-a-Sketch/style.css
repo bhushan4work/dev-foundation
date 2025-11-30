@@ -1,0 +1,35 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+#buttonBar {
+  display: flex;
+  gap: 10px;    /* spacing between buttons */
+  margin-bottom: 12px;
+}
+#buttonBar button{
+    font-size: 15px;
+    color: rgb(64, 190, 236);
+    background-color: rgb(0, 0, 0);
+    height: 30px;
+    border: none;
+}
+
+#container {
+  width: 600px;  
+  height: 600px;         
+  display: flex;
+  flex-wrap: wrap;   /*When row fills up → it automatically wraps to next row*/
+  border: 2px solid #222;
+  margin-top: 12px;
+}
+
+.square {
+  box-sizing: border-box;  /*this is done so border\padding doesn't change size, prevents squares to overflow the row. */
+  border: 1px solid rgba(0,0,0,0.06); 
+  /* width & height will be set by JavaScript for each square */
+}
