@@ -8,82 +8,95 @@
 </head>
 
 <body>
+    <style>
+        #btns{
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+        }
+        div button{
+            margin: 10px;
+            width: 300px;
+            height: 100px;
+            font-size: 50px;
+            color: white;
+            background-color: rgb(47, 170, 246);
+            border: none;
+            border-radius: 10px;
+        }
+        #results{
+            display: flex;
+            flex-direction: column; /*so the results appear one after other in new line*/
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+        }
+        p{
+            font-size: 30px;
+            font-weight: bold;
+        }
+        #player{
+            color: rgb(240, 48, 157);
+        }
+
+        #comp{
+            color: rgb(178, 49, 238);
+        }
+
+        #win{
+            color: rgb(63, 243, 72);
+        }
+    </style>
+    <div id="btns">
+        <button id="rbtn">Rock</button>
+        <button id="pbtn">Paper</button>
+        <button id="sbtn">Scissors</button>
+    </div>
+
+    <div id="results">
+        <p id="player"></p>
+        <p id="comp"></p>
+        <p id="win"></p>
+    </div>
+
     <script>
-        function getUserChoice() {
-            let input = prompt("Enter R for Rock, P for Paper, S for Scissor").toUpperCase();
+        const rbtn = document.querySelector('#rbtn');
+        const pbtn = document.querySelector('#pbtn');
+        const sbtn = document.querySelector('#sbtn');
 
-            // Repeat until valid input (not empty)
-            while (input === "") {
-                input = prompt("Please enter R, P, or S").toUpperCase();
+        rbtn.addEventListener('click', () => playRound('rock'));
+        pbtn.addEventListener('click', () => playRound('paper'));
+        sbtn.addEventListener('click', () => playRound('scissors'));
+
+        function playRound(playerChoice) {
+            const compChoice = getComputerChoice();
+
+            document.querySelector('#player').textContent = "You choosed: " + playerChoice ;
+            document.querySelector('#comp').textContent = "computer choosed: " + compChoice ;
+
+            let result = "";
+            if(playerChoice === compChoice){
+                result = "It's a tie!";
+            }
+            else if (
+                (playerChoice === "rock" && compChoice === "scissors") ||
+                (playerChoice === "paper" && compChoice === "rock") ||
+                (playerChoice === "scissors" && compChoice === "paper")
+            ){
+                result = "You win!";
+            } 
+            else{
+                result = "Computer wins!";
             }
 
-            if (input === "R") return "rock";
-            if (input === "P") return "paper";
-            if (input === "S") return "scissor";
-
-            console.log("Invalid input");
-            return null;
+            document.querySelector('#win').textContent = result;
         }
 
-        function computerchoice() {
-            let option = ["rock", "paper", "scissor"];
-            let choice = Math.floor(Math.random() * option.length);
-            console.log("Computer chose:", option[choice]);
-            return option[choice];
+        function getComputerChoice() {
+            const arr = ["rock", "paper", "scissors"];
+            return arr[Math.floor(Math.random() * 3)];
         }
-
-        function getwinner(user, computer) {
-            if (user === computer) return "It's a tie";
-
-            if (
-                (user === "rock" && computer === "scissor") ||
-                (user === "scissor" && computer === "paper") ||
-                (user === "paper" && computer === "rock")
-            ) {
-                return "You win!";
-            }
-
-            return "Computer wins!";
-        }
-
-        // -------------------- GAME STARTS HERE --------------------
-
-        let rounds = Number(prompt("How many rounds do you want to play?"));
-        let userScore = 0;
-        let computerScore = 0;
-
-        for (let i = 1; i <= rounds; i++) {
-            console.log(`\n--- Round ${i} ---`);
-
-            let user = getUserChoice();
-
-            if (user === null) {
-                console.log("Invalid input. Round skipped.");
-                continue;
-            }
-
-            console.log("You chose:", user);
-
-            let computer = computerchoice();
-            let result = getwinner(user, computer);
-            console.log(result);
-
-            // Score update
-            if (result === "You win!") userScore++;
-            else if (result === "Computer wins!") computerScore++;
-
-            // Display current score
-            console.log(`Score → You: ${userScore} | Computer: ${computerScore}`);
-        }
-
-        // -------------------- FINAL RESULTS --------------------
-
-        console.log("\n====== FINAL RESULT ======");
-        console.log(`Final Score → You: ${userScore} | Computer: ${computerScore}`);
-
-        if (userScore > computerScore) console.log("🎉 You won the game!");
-        else if (computerScore > userScore) console.log("💻 Computer won the game!");
-        else console.log("🤝 It's a tie overall!");
 
     </script>
 </body>
