@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center; /*centers horizontally*/
+    align-items: center;  /*centers vertically after giving a height like below*/
+    height: 100vh;
+    background-color: hsl(0, 0%, 95%);
+}
+#container{
+    font-family: Arial, sans-serif;
+    background-color: hsl(0, 0%, 15%);
+    border-radius: 15px;
+    max-width: 320px;
+    overflow: hidden;  /*prevents long input from overflowing*/ 
+}
+input{
+    width: 100%;
+    padding: 20px;
+    font-size: 5rem;
+    text-align: left;
+    border: none;
+    background-color: hsl(0, 0%, 20%);
+    color: white;
+}
+
+button{
+    width: 70px;
+    height: 70px;
+    margin: 3px;
+    border-radius: 50px;
+    border: none;
+    background-color: hsl(0, 0%, 30%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
