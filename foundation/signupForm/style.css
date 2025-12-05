@@ -1,0 +1,57 @@
+#container {
+    display: flex;
+    align-items: center;
+    gap: 40px;        /* space between image and form */
+    padding: 40px;
+}
+
+.left img {
+    width: 450px;     /* adjust size as you want */
+    height: auto;
+}
+
+.right {
+    flex: 1;     /* form takes remaining space */
+}
+
+#para{
+    color: grey;
+}
+
+
+.info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* exactly 2 columns */
+    gap: 20px 40px; /* row-gap | column-gap */
+    width: 100%;
+    max-width: 700px; /* optional */
+    margin-top: 40px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field label {
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.field input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button{
+    background-color: rgb(159, 138, 242);
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    width: 140px;
+    height: 35px ;
+    border-radius: 6px;
+    margin-top: 20px;
+    color: black;
+}
