@@ -23,8 +23,8 @@
     <style>
         .container {
             display: grid;
-            grid-template-rows: 100px 100px 100px;
-            grid-template-columns: 100px 100px 100px; 
+            grid-template-rows: repeat(3,1fr); /*gives 1 fraction of totalspace to each of 3 rows*/
+            grid-template-columns: repeat(3,1fr); /*gives 1 fraction of totalspace to each of 3 columns*/
         }
 
         .item {
