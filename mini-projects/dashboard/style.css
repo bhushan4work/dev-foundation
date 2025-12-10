@@ -1,0 +1,163 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f1f5f9;
+}
+
+/* ---------------- SIDEBAR ---------------- */
+.sidebar {
+    width: 240px;
+    background: #0ea5e9;
+    color: white;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar h1 {
+    margin-bottom: 25px;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.sidebar li {
+    margin: 12px 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* ---------------- MAIN AREA ---------------- */
+.main {
+    margin-left: 240px;
+    /* same as sidebar width */
+    padding: 20px;
+}
+
+/* ---------------- TOPBAR ---------------- */
+.topbar {
+    background: white;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchbar {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: 300px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+/* ---------------- CONTENT GRID ---------------- */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* Left big, right small */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* ---------------- PROJECT AREA ---------------- */
+.projects h2 {
+    margin-bottom: 15px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    padding:30px;
+    border-radius: 8px;
+    border-left: 6px solid #facc15;
+    /* yellow accent */
+}
+
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* ---------------- RIGHT COLUMN ---------------- */
+.announcements h2,
+.trending h2 {
+    margin-bottom: 10px;
+}
+
+.announcement-card,
+.trend-card {
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* Announcement text */
+.announcement-card h4 {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.announcement-card p {
+    font-size: 13px;
+    color: #555;
+}
+
+/* Trending users */
+.trend-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.trend-card img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.trend-card strong {
+    font-size: 14px;
+}
+
+.trend-card p {
+    font-size: 13px;
+    color: #666;
+}
