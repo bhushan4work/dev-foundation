@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div id="logo">library den</div>
+            <button id="addBtn">Add</button>
+        </div>
+
+        <div class="data">
+            <div id="modal" class="modal">
+                <div class="modal-box">
+                    <h3>Add Book</h3>
+
+                    <label>Book:</label>
+                    <input id="bookName" type="text">
+
+                    <label>Author:</label>
+                    <input id="author" type="text">
+
+                    <label>
+                        <input id="read" type="checkbox">
+                        Already Read
+                    </label>
+
+                    <div class="actions">
+                        <button id="cancelBtn">Cancel</button>
+                        <button id="saveBtn">Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Where items will be listed -->
+            <div id="list"></div>
+
+        </div>
+
+
+        <div class="footer">
+            <strong>Copyright © 2025 by Bhu$hann</strong>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
