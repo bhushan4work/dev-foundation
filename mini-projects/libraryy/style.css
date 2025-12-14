@@ -1,92 +1,79 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
-    background-color: whitesmoke;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.data {
-    flex: 1;
-    /*1 makes '.data' fill the remaining vertical space*/
-}
-
-.header {
-    background-color: white;
-    padding: 12px;
-
-    display: flex;
-    justify-content: space-between; /* logo left, button right */
-    align-items: center;            /* vertically align items */
-}
-
-#logo {
-    font-size: 50px;
-    font-weight: bold;
-}
-#addBtn{
-    font-size: 20px;
-    width: 100px;
-    height: 40px;
-    border: none;
-    background-color: rgb(233, 233, 233);
-    border-radius: 10px;
-}
-
-#popup{
-    display:none; 
-    border:1px solid #aaa; 
-    padding:15px; 
-    background:white; 
-    width:250px;
-}
-
-
-.footer {
-    margin-top: auto;
-    /*pushes footer to bottom*/
-    padding: 20px;
-    text-align: center;
-}
-
-/* Hide modal initially */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4); /* dark background */
-  justify-content: center;
-  align-items: center;
-}
-
-/* The modal box */
-.modal-box {
-  background: white;
+  margin: 0;
   padding: 20px;
-  width: 260px;
-  border-radius: 10px;
+  background: #f4f4f4;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header button {
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+/* Library grid */
+.library {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* Book card */
+.book {
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.book h3 {
+  margin-top: 0;
+}
+
+.book button {
+  margin-right: 5px;
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Dialog / Form */
+dialog {
+  border: none;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.modal-box input[type="text"],
-.modal-box input[type="number"] {
-  width: 100%;
-  padding: 5px;
-}
 
-#list{
-    padding: 10px;
-    color: rgb(136, 136, 136);
-    font-weight: bold;
-}
-
-.actions {
+label {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
+  flex-direction: column;
+}
+
+.checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }

@@ -1,55 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Library</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <div class="container">
-        <div class="header">
-            <div id="logo">library den</div>
-            <button id="addBtn">Add</button>
-        </div>
+  <!-- Header -->
+  <header class="header">
+    <h1>My Library</h1>
+    <button id="newBookBtn">New Book</button>
+  </header>
 
-        <div class="data">
-            <div id="modal" class="modal">
-                <div class="modal-box">
-                    <h3>Add Book</h3>
+  <!-- Book Form (simple modal style) -->
+  <dialog id="bookDialog">
+    <form id="bookForm">
+      <h2>Add New Book</h2>
 
-                    <label>Book:</label>
-                    <input id="bookName" type="text">
+      <label>
+        Title
+        <input type="text" id="title" required />
+      </label>
 
-                    <label>Author:</label>
-                    <input id="author" type="text">
+      <label>
+        Author
+        <input type="text" id="author" required />
+      </label>
 
-                    <label>
-                        <input id="read" type="checkbox">
-                        Already Read
-                    </label>
+      <label>
+        Pages
+        <input type="number" id="pages" required />
+      </label>
 
-                    <div class="actions">
-                        <button id="cancelBtn">Cancel</button>
-                        <button id="saveBtn">Save</button>
-                    </div>
-                </div>
-            </div>
+      <label class="checkbox">
+        <input type="checkbox" id="read" />
+        Read
+      </label>
 
-            <!-- Where items will be listed -->
-            <div id="list"></div>
+      <div class="form-actions">
+        <button type="submit">Add</button>
+        <button type="button" id="cancelBtn">Cancel</button>
+      </div>
+    </form>
+  </dialog>
 
-        </div>
+  <!-- Library Display -->
+  <main class="library"></main>
 
-
-        <div class="footer">
-            <strong>Copyright © 2025 by Bhu$hann</strong>
-        </div>
-
-    </div>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
