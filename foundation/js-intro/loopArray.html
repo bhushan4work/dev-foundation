@@ -9,13 +9,28 @@
 
 <body>
     <script>
+        //break -breaks out of loop, continue -skips an iteration
+
+
+        //---Loops---
+        let fruits = ["Apple", "Orange", "Plum"];
+        for (let fruit of fruits) {
+            alert(fruit);
+        }
+
+        let arr3 = ["Apple", "Orange", "Pear"];
+        for (let key in arr3) {
+            alert(arr3[key]); // Apple, Orange, Pear
+        }
+
+
         //---Arrays---
         let arr1 = ['apple', 'orange', 'banana'];
         arr1[arr1.length - 1]; /* or */ arr1[arr1(-1)];   //outputs last element in array
         arr1.pop(); //removes last element
         arr1.push('mango'); //adds element at last, multiple elements can be pushed together like ('mango','grapes')
         arr1.shift(); //removes 1st element
-        arr1.unshift('mango'); //adds mango to 1st place,mutiple elements can be unshifted together like ('mango','grapes')
+        arr1.unshift('mango'); //adds mango at beginning, mutiple elements can be unshifted together like ('mango','grapes')
 
         let arr2 = ['ball', { name: 'john' }, true, function () { alert("hello"); }]; //array can store diff types of value
         arr2[1].name; //outputs john
@@ -65,35 +80,32 @@
         alert(users.findLastIndex(user => user.name == 'John')); // 3
 
         //filter- creates new arr by filtering out elements
-        let nums = [1,2,3,4,5];
+        let nums = [1, 2, 3, 4, 5];
         evenNums = nums.filter(getEven);
         console.log(evenNums);
-        function getEven(element){
+        function getEven(element) {
             return element % 2 === 0;
         }
 
-        //map- accepts callbck & applies that fxn to each element
-        let numss = [5,6,7,8,9];
+        //map- accepts callback & applies that fxn to each element & creates new arr 
+        let numss = [5, 6, 7, 8, 9];
         let square = numss.map(getSquare);
         console.log(square);
-        function getSquare(element){
-            return Math.pow(element,2);
+        function getSquare(element) {
+            return Math.pow(element, 2);
         }
 
         let arr10 = [1, 2, 15];
-        arr10.sort(); // 1,15,2 ,because items are sorted as strings by default. To use sorting order,we need to supply a fxn as below
+        arr10.sort(); // 1,15,2 ,because items are sorted as strings by default, to use sorting-order in num we need to supply a fxn as below
         function compareNumeric(a, b) {
             if (a > b) return 1;
             if (a == b) return 0;
             if (a < b) return -1;
+            //so it will get sorted as [-1's, 0's, 1's]
         }
         let arr11 = [1, 2, 15];
         arr11.sort(compareNumeric);
         alert(arr);  // 1, 2, 15
-
-        let arr12 = [1, 2, 3, 4, 5];
-        arr12.reverse();
-        alert(arr); // 5,4,3,2,1
 
         let names = 'Bilbo, Gandalf, Nazgul';
         let arr13 = names.split(', ');
@@ -112,7 +124,7 @@
         const arr16 = [1, 2, 3, 4];
         let total = arr16.reduce(sum);
         console.log(total); // 10
-        function sum(accumulator, element){
+        function sum(accumulator, element) {
             return accumulator + element;
         }
 
@@ -122,19 +134,45 @@
         console.log(words[3]); // output: "fox"
         const chars = str.split("");
         console.log(chars[8]); // output: "k"
-        
 
-        //---Loops---
-        let fruits = ["Apple", "Orange", "Plum"];
-        // iterates over array elements
-        for (let fruit of fruits) {
-            alert(fruit);
+        //forEach() -method allows to run a fxn for every element of the array
+        arr17.forEach(function (item, index, array) {
+            // ... do something with an item
+        });
+
+        //shuffle -randomly rearrange the order of its elements
+        let cards = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+        shuffle(cards);
+        console.log(cards);
+        //console.log(cards[0]);
+        //cards.forEach(card => console.log(card));
+        function shuffle(array) {
+            let currentIndex = array.length;
+            while (currentIndex != 0) {  //for loop can also be used for this
+                let randomIndex = Math.floor(Math.random() * array.length);
+                currentIndex -= 1;
+
+                let temp = array[currentIndex]; //swapping
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temp;
+            }
+            return array;
         }
 
-        let arr3 = ["Apple", "Orange", "Pear"];
-        for (let key in arr3) {
-            alert(arr3[key]); // Apple, Orange, Pear
+        //closures -fxn with pvt data, gives access to outer fxn scope from inner fxn
+        document.getElementById("loginButton").onclick = login();
+        let userInbox = 420.69; //Doesn't work as it's scope is diff from others 
+        function login() {
+            let userName = "Bro";
+            userInbox = 1;
+            function alertUser() { //this inner fxn acts as closure
+                alert(`${userName} you have ${userInbox} new messages!`);
+                userInbox = 0;
+            }
+            return alertUser;
         }
+
+
     </script>
 </body>
 

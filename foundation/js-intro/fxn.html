@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        function add7(a){
-            return a + 7;
-        }
-        console.log(add7(5));
+        //Arguments- actual values that are passed to the function when it is invoked
+        //Parameters- named variables listed in the function's declaration
 
-        function mutiply(b,c){
-            return b * c;
+        //callbacks -function passed into another function as an argument
+        //Synchronous -executes code sequentially, one operation at a time, blocking further execution until each task is complete
+        //Asynchronous -allows operations to run in the background without blocking the main program flow
+        sum(2,3,display);
+        function sum(x,y,doSomething){  //doSomething works as callback
+            let result = x+y;
+            return result;
+            doSomething(result);
         }
-        console.log(mutiply(4,5));
+        function display(output){
+            console.log(output);
+        }
 
-        function capitalize(string){
-            //for any string it will return the 1st letter uppercase and the rest lowercase
-            return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-        }
-        console.log(capitalize("ABCD"));
-
-        function lastLetter(string){
-            return string.slice(-1); //or string.charAt(string.length-1) or string[string.length-1]
-        }
-        console.log(lastLetter("abcd"));
     </script>
-    
+
 </body>
+
 </html>

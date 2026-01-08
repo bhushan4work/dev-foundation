@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Class -blueprint for creating obj, defines what prop & methods they have, use constructor for unique prop
+        class Player {
+            score = 0;
+            pause() {
+                console.log("You paused the game");
+            }
+        }
+        const player1 = new Player();
+        const player2 = new Player();
+
+        player1.score += 1;
+
+        console.log(player1.score);
+        player2.pause();
+
+        // constructor -special method of class, accepts arguments and assigns properties
+        class Student {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            study() {
+                console.log(`${this.name} is studying`);
+            }
+        }
+        const student1 = new Student("Spongebob", 30);
+        const student2 = new Student("Patrick", 35);
+
+        console.log(student1.name);
+        student1.study();
+
+        console.log(student2.name);
+        student2.study();
+
+        
+
+
+    </script>
+</body>
+
+</html>

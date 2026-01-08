@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name = "Bro Code";
+        let phoneNum = 123-255-6980;
+
+        name.length;
+        name.toUpperCase();
+        name.toLowerCase();
+        name.charAt(2);
+        name.indexOf("r");
+        name.lastIndexOf("o");
+        name.trim(); //removes extra space before n after the string
+
+        phoneNum.replaceAll("-", "/");  //replaces all '-' with '/'
+
+        //slice()  -extracts part of string, & returns new string without modifying original
+        let fullName = "Bro Code";
+        let firstName = fullName.slice(0, fullName.indexOf(" "));  //indexOf is used to get index of space
+        let lastName = fullName.slice(fullName.indexOf(" ")+1);
+
+        //isNaN() first converts value to a num, then checks if it is num or not
+        //ex: want to check if input is num or not, first convert it to Number i.e input = Number(input.value)
+        isNaN("10")      // false
+        isNaN("abc")     // true
+        isNaN("")        // false
+        isNaN(" ")       // false
+        isNaN(null)      // false
+        isNaN(true)      // false
+        
+
+
+
+    </script>
+</body>
+</html>

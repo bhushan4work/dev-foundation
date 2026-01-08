@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Map -object that holds key-value pairs of any data type
+        const store = new Map([
+            ["t-shirt", 20],
+            ["jeans", 30],
+            ["socks", 10]
+        ]);
+        //store.get("t-shirt");  outputs 20
+        //store.set("hat", 40);  adds this key:value  
+        //store.delete("hat"); 
+        //console.log(store.has("underwear"));  returns bool
+        //console.log(store.size); 
+        store.forEach((value, key) => console.log(`${key} $${value}`));
+
+        // object -group of properties and methods
+        const car = {
+            model: "Mustang",
+            year: 2023,
+            drive: function () {
+                console.log("You drive the car");
+            }
+        }
+        console.log(car.model);
+        car.drive();
+
+        //this -reference to particular obj, object depends on immediate context
+        const car1 = {
+            model: "Mustang",
+            year: 2023,
+            drive: function () {
+                console.log(`You drive the ${this.model}`);
+            }
+        }
+        const car2 = {
+            model: "Corvette",
+            year: 2024,
+            drive: function () {
+                console.log(`You drive the ${this.model}`);
+            }
+        }
+        car1.drive();
+        car2.drive();
+        
+    </script>
+</body>
+
+</html>
