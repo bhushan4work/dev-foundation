@@ -8,22 +8,60 @@
 </head>
 
 <body>
-    <script>
+    <!--
         //Arguments- actual values that are passed to the function when it is invoked
-        //Parameters- named variables listed in the function's declaration
+        //Parameters- named variables listed in the function's declaration -->
 
+    <script>
         //callbacks -function passed into another function as an argument
-        //Synchronous -executes code sequentially, one operation at a time, blocking further execution until each task is complete
-        //Asynchronous -allows operations to run in the background without blocking the main program flow
-        sum(2,3,display);
-        function sum(x,y,doSomething){  //doSomething works as callback
-            let result = x+y;
+        sum(2, 3, display);
+        function sum(x, y, doSomething) {  //doSomething works as callback
+            let result = x + y;
             return result;
             doSomething(result);
         }
-        function display(output){
+        function display(output) {
             console.log(output);
         }
+
+        //setTimeout() -invokes a fxn after a number of millisec, its asynchronous fxn (doesn't pause execution) 
+        let timer1 = setTimeout(firstMessage, 6000, item, price);
+        let timer2 = setTimeout(secondMessage, 3000);
+        //2nd mesg executes 1st due to less timeDelay & not in the order it is invoked
+        function firstMessage() {
+            alert(`Buy this course for $100`);
+        }
+        function secondMessage() {
+            alert(`This is not a scam!`);
+        }
+        document.getElementById("myButton").onclick = function () {
+            clearTimeout(timer1);
+            clearTimeout(timer2);
+            alert(`Thanks for buying <3`);
+        }
+
+        // setInterval() -invokes a fxn repeatedly after num of millisecs, its asynchronous fxn (doesn't pause execution)
+        let count = 0;
+        let max = window.prompt("Count up to what #?");
+        max = Number(max);
+        const myTimer = setInterval(countUp, 2000);
+        function countUp() {
+            count += 1;  //increment a num after 2 sec until max input
+            console.log(count);
+            if (count >= max) {
+                clearInterval(myTimer);
+            }
+        }
+
+        //synchronousCode -runs in ordered sequence. step-by-step linear instructions (start now, finish now)
+        //asynchronousCode -runs out of sequence. Ex: access a database\Fetch files\tasks that take time (start now, finish later)
+
+        console.log("START");  //synchronous -'start' is executed followed by 'this is ...'
+        console.log("this is synchronous");
+
+        setTimeout(() => console.log("This is asynchronous"), 5000);
+        console.log("START");     // asynchronous -'start' is executed 1st instead of 'this is ..'  
+
 
     </script>
 

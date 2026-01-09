@@ -43,9 +43,78 @@
         console.log(student2.name);
         student2.study();
 
-        
+        //static -belongs to class, not the obj (properties: useful for caches, fixed-config | methods: useful for utility fxn)        
+        class User {
+            static role = "Admin";
+            static greet() {
+                console.log("Hello from User class");
+            }
+        }
+        console.log(User.role);     //Admin
+        User.greet();               //Hello from User class
 
+        const u1 = new User();
 
+        console.log(u1.role);   //undefined , i.e we cant access static this way
+        u1.greet();             //Error
+
+        // inheritance -a child class can inherit all the  methods and properties from another class
+        class Animal {
+            //these are common things which every animal possess
+            alive = true;
+            sleep() {
+                console.log(`This ${this.name} is sleeping`);
+                console.log(rabbit.alive);
+            }
+        }
+
+        class Mouse extends Animal { //inherits alive prop & sleep meth from Animal class
+            name = "mouse";
+            run() {
+                console.log(`This ${this.name} is running`);
+            }
+        }
+        class Dolphin extends Animal {
+            name = "dolphin";
+            swim() {
+                console.log(`This ${this.name} is swimming`);
+            }
+        }
+        const mouse = new Mouse();
+        const dolphin = new Dolphin();
+
+        mouse.sleep();
+        mouse.run();
+
+        // super -refers to parent class. Commonly used to invoke constructor of parent class
+        class Animal {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+
+        class Rabbit extends Animal {
+            constructor(name, age, runSpeed) {
+                super(name, age);
+                this.runSpeed = runSpeed;
+            }
+        }
+        class Fish extends Animal {
+
+            constructor(name, age, swimSpeed) {
+                super(name, age);
+                this.swimSpeed = swimSpeed;
+            }
+        }
+        const rabbit = new Rabbit("rabbit", 1, 40);
+        const fish = new Fish("fish", 2, 80);
+
+        console.log(rabbit.name);
+        console.log(rabbit.age);
+        console.log(rabbit.runSpeed);
+
+    
     </script>
 </body>
 

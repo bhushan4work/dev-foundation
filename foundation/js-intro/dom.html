@@ -15,14 +15,41 @@
     3)<div> with a black border and pink background color with the following elements inside of it: 
         • another <h1> that says “I’m in a div” 
         • a <p> that says “ME TOO!” 
-    append the <h1> and <p> to it before adding it to the container.
-    -->
+    append the <h1> and <p> to it before adding it to the container -->
 
     <div id="container"></div>
 
-    <script>
-        const container = document.querySelector('#container');
+    <button id="myButton">My button</button>
+    <button class="myButtons">Button 1</button>
+    <button class="myButtons">Button 2</button>
+    <button class="myButtons">Button 3</button>
+    <button class="myButtons">Button 4</button>
 
+    <style>
+        #myButton,
+        .myButtons {
+            font-size: 4rem;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+        }
+
+        .enabled {
+            background-color: hsl(204, 100%, 50%);
+            color: white;
+        }
+
+        .hover {
+            box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.2);
+            font-weight: bold;
+        }
+    </style>
+
+
+    <script>
+        //DOM
+        const container = document.querySelector('#container');
         // 1. Create a <p> with red text saying "Hey I'm red!"
         const p = document.createElement('p');
         p.textContent = "Hey I'm red!";
@@ -50,8 +77,25 @@
         // Append h1 and p to the div
         div.appendChild(h1);
         div.appendChild(p2);
-
         container.appendChild(div);  // Add the whole div to the container
+
+        //classList -element property in js used to interact with an element's list of classes(CSS classes)
+        //            Allows you to make reusable classes for many elements
+        //            add() remove() toggle() replace() contains()
+        const myButton = document.getElementById("myButton");
+        myButton.classList.add("enabled");
+
+        myButton.addEventListener('mouseover', event => {
+            event.target.classList.toggle('hover');
+        });
+
+        //NodeList -static collection of HTML elements by (id, class, element) ,can be created by using querySelectorAll()
+        //          similar to an array, but not (map, filter, reduce) ,NodeList won't update to automatically reflect changes in console
+        let buttons = document.querySelectorAll(".myButtons");   //create a nodelist
+        buttons.forEach(button => {
+            button.classList.add("enabled"); //use of classList on nodeList
+        });
+
     </script>
 
 </body>

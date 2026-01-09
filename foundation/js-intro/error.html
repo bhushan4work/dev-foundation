@@ -9,49 +9,30 @@
 
 <body>
     <script>
-        //A TypeError may be thrown when:
-        //an operand or argument passed to a function is incompatible with the type expected by that operator or function; or
-        //when attempting to modify a value that cannot be changed; or
-        //when attempting to use a value in an inappropriate way
-        //catching a typeerror
+        // Error -an obj that is created to represent a problem that occurs. It often occurs with userInput or establishing a connection
+        // try { } -Encloses code that might potentially cause an error
+        // catch { } -Catch and handle any thrown Errors from try { }
+        // finally { } -(optional) Always executes & Used mostly for clean up, ex: close files & connections, release resources
         try {
-            null.f();
-        } catch (e) {
-            console.log(e instanceof TypeError); // true
-            console.log(e.message); // "null has no properties"
-            console.log(e.name); // "TypeError"
-            console.log(e.stack); // Stack of the error
+            const dividend = Number(window.prompt("Enter a dividend: "));
+            const divisor = Number(window.prompt("Enter a divisor: "));
+            if (divisor == 0) {
+                throw new Error("You can't divide by zero!");
+            }
+            if (isNaN(dividend) || isNaN(divisor)) {
+                throw new Error("Values must be a number");
+            }
+            const result = dividend / divisor;
+            console.log(result);
         }
-
-        //creating a typeerror
-        try {
-            throw new TypeError("Hello");
-        } catch (e) {
-            console.log(e instanceof TypeError); // true
-            console.log(e.message); // "Hello"
-            console.log(e.name); // "TypeError"
-            console.log(e.stack); // Stack of the error
+        catch (error) {
+            console.error(error);
         }
+        finally {
+            console.log("This always executes");
+        }
+        console.log("You have reached the end!");
         
-        //catching a syntaxerror
-        try {
-            eval("hoo bar");
-        } catch (e) {
-            console.log(e instanceof SyntaxError); // true
-            console.log(e.message);
-            console.log(e.name); // "SyntaxError"
-            console.log(e.stack); // Stack of the error
-        }
-        
-        //catching a referenceerror
-        try {
-            let a = undefinedVariable;
-        } catch (e) {
-            console.log(e instanceof ReferenceError); // true
-            console.log(e.message); // "undefinedVariable is not defined"
-            console.log(e.name); // "ReferenceError"
-            console.log(e.stack); // Stack of the error
-        }
     </script>
 </body>
 
